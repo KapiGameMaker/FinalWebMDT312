@@ -1,0 +1,116 @@
+/* CSS: styles.css */
+
+* {
+    box-sizing: border-box;
+}
+
+/* Basic body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Navigation bar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    background-color: #6e2c26;
+    color: white;
+    padding: 10px;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.navbar-menu .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Container styling */
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Welcome message styling */
+.welcome-message {
+    font-size: 18px;
+    margin: 20px 0;
+    color: #333;
+}
+
+.table-selection-message {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Table grid styling */
+.table-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.table {
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+.table.available {
+    background-color: #7ad36a;
+}
+
+.table.reserved {
+    background-color: #d65848;
+}
+
+.table:hover {
+    transform: scale(1.05);
+}
+
+/* Legend and reserve button styling */
+.legend {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #777;
+}
+
+.reserve-button {
+    margin-top: 20px;
+    background-color: #5b2d23;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.reserve-button:hover {
+    background-color: #4a221c;
+}
