@@ -42,7 +42,8 @@ body {
     text-align: center;
     width: 80%;
     max-width: 400px;
-    margin: 0 auto; /* จัดให้ container อยู่กึ่งกลางแนวนอน */
+    margin: auto;
+    margin-top: 50%;
     justify-content: center;
 }
 
