@@ -1,4 +1,6 @@
+document.getElementById("reserve-button").addEventListener("click", goToReservation);
+
 function goToReservation() {
-    document.getElementById("profile-screen").style.display = "none";
-    document.getElementById("reservation-screen").style.display = "block";
+    // Redirect to the reservation page
+    window.location.href = "reserve-table.html";
 }
