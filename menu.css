@@ -157,7 +157,7 @@ img {
 
 .menu-head {
     text-align: center;
-    margin-top: 10%;
+    margin-top: 50%;
 }
 
 .menu-head h2 {
@@ -222,14 +222,24 @@ img {
 }
 
 .food-item {
-    border-radius: 4px;
-    overflow: hidden;
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
     background: #fff;
     color: #000;
-    margin: 0.6rem 0;
+    margin-top: 80px;
     box-shadow: 0 0 16px -4px rgba(0, 0, 0, 0.75);
-    display: 0;
+    display: flex;
     animation: fadeIn 2s;
+}
+
+.button_orders {
+    padding: 2%;
+    margin-left: 85%;
+    background-color: brown;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
 }
 
 @keyframes fadeIn {
@@ -254,6 +264,7 @@ img {
     color: #4b2e2a;
     font-weight: 500;
     text-transform: capitalize;
+    font-size: 80%;
 }
 
 .line {
@@ -277,17 +288,6 @@ img {
 .rating .fa-star {
     margin-right: 0.4rem;
     color: #44355b;
-}
-
-.category {
-    padding-top: 0.2rem;
-    font-size: 1rem;
-    font-weight: 800;
-    font-family: var(--Inter);
-}
-
-.category span {
-    font-weight: 500;
 }
 
 @media screen and (min-width: 600px) {
@@ -317,7 +317,7 @@ img {
     }
     .food-items {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2);
         column-gap: 2rem;
     }
 }
