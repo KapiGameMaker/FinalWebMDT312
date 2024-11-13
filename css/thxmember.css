@@ -18,22 +18,20 @@
     cursor: pointer;
 }
 
-.checkorder {
+.thxmem {
     text-align: center;
-    margin-top: 5%;
 }
 
-.checkorder h2 {
-    margin-top: 10%;
+.thxmem h2 {
+    margin-top: 5%;
     font-family: var(--Kaushan);
     font-size: 140%;
     color: black;
 }
 
-.checkorder p {
-    font-weight: 300;
-    padding: 1.8rem 0;
-    color: #000;
+#snowman {
+
+    width: 50%;
 }
 
 
