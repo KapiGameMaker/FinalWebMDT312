@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ร้าน Miyue - Login</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-brand">ร้าน Miyue</div>
+        <div class="navbar-menu">
+            <span class="menu-icon">&#9776;</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Login Screen -->
+        <div class="login-screen">
+            <h2>เข้าสู่ระบบ</h2>
+            <form action="/checkLogin" method="POST">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

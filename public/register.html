@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ร้าน Miyue - Register</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-brand">ร้าน Miyue</div>
+        <div class="navbar-menu">
+            <span class="menu-icon">&#9776;</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Register Screen -->
+        <div class="register-screen">
+            <h2>สมัครสมาชิก</h2>
+            <form action="/regisDB" method="POST">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="repassword" placeholder="Re-Password" required>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
