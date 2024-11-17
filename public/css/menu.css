@@ -318,7 +318,9 @@ img {
 
 @media screen and (min-width: 992px) {
     .menu-head p {
-        width: 50%;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
     }
     .food-items {
         display: grid;
