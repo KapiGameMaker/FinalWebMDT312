@@ -78,7 +78,6 @@ body {
     color: white;
     cursor: pointer;
     border-radius: 5px;
-    transition: transform 0.2s;
 }
 
 .menu.available {
@@ -89,9 +88,6 @@ body {
     background-color: #d65848;
 }
 
-.menu:hover {
-    transform: scale(1.05);
-}
 
 
 /* Legend and reserve button styling */
@@ -113,7 +109,6 @@ body {
     border-radius: 5px;
     cursor: pointer;
     width: 25%;
-    transition: background-color 0.3s;
 }
 
 .reserve-button:hover {
@@ -190,7 +185,6 @@ img {
     margin: 0 1rem;
     cursor: pointer;
     outline: 0;
-    transition: opacity 0.4s ease-out;
 }
 
 .menu-btn::after {
@@ -202,7 +196,6 @@ img {
     background: #ff9505;
     margin-top: 0.5rem;
     width: 0;
-    transition: width 0.4s ease-out;
 }
 
 .menu-btn:hover::after {
@@ -264,7 +257,6 @@ img {
     font-family: var(--Inter);
     color: #4b2e2a;
     font-weight: 500;
-    text-transform: capitalize;
     font-size: 80%;
 }
 
@@ -300,8 +292,7 @@ img {
         padding: 1rem;
         column-gap: 1rem;
         margin-top: 1.5%;
-        width: 25%;
-        margin-left: 38%;
+        margin-bottom: 3%;
     }
     .food-content {
         padding: 0;
@@ -321,25 +312,33 @@ img {
         width: 50%;
     }
     .food-items {
-        display: grid;
+        display: flex;
         column-gap: 2rem;
+        width: 30%;
+        flex-direction: column;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
 /*section-footer*/
 .footer {
     position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+    bottom: 10px;
+    right: 10px;
     background-color: #6e2c26;
     color: white;
-    text-align: center;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000
   }
 
 .imglogo {
-    width: 2%;
-    margin-left: 60%;
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: auto;
 }
