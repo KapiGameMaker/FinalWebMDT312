@@ -54,17 +54,31 @@ body {
     width: 100%;
     background-color: #10850c;
     display: flex;
-    align-items: left;
     color: white;
 }
+
+
 .ordering_food {
     font-size: 20px;
     font-weight: bold;
-    text-align: center;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 #back {
     width: 3.5%;
     background: #6e2c26;
     padding: 1%;
+}
+
+@media screen and (min-width: 992px) {
+    .ordering_food {
+        font-size: 20px;
+        font-weight: bold;
+        align-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
