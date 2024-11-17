@@ -68,9 +68,9 @@ body {
 }
 
 #back {
-    width: 3.5%;
+    width: 2%;
     background: #6e2c26;
-    padding: 1%;
+    padding: 0.5%;
 }
 
 @media screen and (min-width: 992px) {
@@ -80,5 +80,10 @@ body {
         align-content: center;
         margin-left: auto;
         margin-right: auto;
+    }
+    #back {
+        width: 2%;
+        background: #6e2c26;
+        padding: 0.5%;
     }
 }
