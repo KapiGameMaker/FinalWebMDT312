@@ -20,21 +20,22 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #4b2e2a;
-    color: #d8b892;
-    padding: 15px;
+    background-color: #6e2c26;
+    color: white;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .navbar-brand {
-    font-size: 1.2rem;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .menu-icon {
     font-size: 1.5rem;
-    color: #d8b892;
+    color: white;
 }
 
 /* Main Container */

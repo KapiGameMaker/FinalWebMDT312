@@ -37,22 +37,22 @@
 
 /*section-footer*/
 .footer {
-    padding: 10px;
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: #10850c;
     display: flex;
-    align-items: left;
     color: white;
 }
+
+
 .ordering_food {
     font-size: 20px;
     font-weight: bold;
-}
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
 
-#back {
-    width: 3.5%;
-    
 }
