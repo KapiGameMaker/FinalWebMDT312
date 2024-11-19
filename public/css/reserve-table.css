@@ -1,10 +1,7 @@
-/* CSS: styles.css */
-
 * {
     box-sizing: border-box;
 }
 
-/* Basic body styling */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -12,7 +9,6 @@ body {
     background-color: #f2f2f2;
 }
 
-/* Navigation bar styles */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -27,13 +23,6 @@ body {
     font-weight: bold;
 }
 
-
-.navbar-menu .menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-}
-
-/* Container styling */
 .container {
     background-color: #fff;
     padding: 20px;
@@ -44,14 +33,6 @@ body {
     max-width: 400px;
     margin: auto;
     margin-top: 30%;
-    justify-content: center;
-}
-
-/* Welcome message styling */
-.welcome-message {
-    font-size: 18px;
-    margin: 20px 0;
-    color: #333;
 }
 
 .table-selection-message {
@@ -61,7 +42,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Table grid styling */
 .table-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -76,26 +56,18 @@ body {
     color: white;
     cursor: pointer;
     border-radius: 5px;
-    transition: transform 0.2s;
-}
-
-.table.available {
     background-color: #7ad36a;
-}
-
-.table.reserved {
-    background-color: #d65848;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
 .table:hover {
     transform: scale(1.05);
 }
 
-/* Legend and reserve button styling */
-.legend {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #777;
+.table.selected {
+    background-color: #f2a541;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .reserve-button {

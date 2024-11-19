@@ -169,6 +169,29 @@ app.get('/getUserData', (req, res) => {
     }
 });
 
+app.post('/reserveTable', (req, res) => {
+    const username = req.cookies.username;
+    const table = req.body.table;
+
+    if (!username) {
+        return res.status(401).json({ error: "Unauthorized" });
+    }
+
+    if (!table) {
+        return res.status(400).json({ error: "No table selected" });
+    }
+
+    // Save the table reservation in the database
+    const query = `UPDATE userinfo SET reserved_table = ? WHERE username = ?`;
+    queryDB(mysql.format(query, [table, username]))
+        .then(() => {
+            res.status(200).send("Table reserved successfully");
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).json({ error: "Failed to reserve table." });
+        });
+});
 
 app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
