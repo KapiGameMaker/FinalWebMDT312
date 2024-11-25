@@ -109,10 +109,19 @@ body {
     border-radius: 5px;
     cursor: pointer;
     width: 25%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .reserve-button:hover {
     background-color: #4a221c;
+    transform: scale(1.1); /* ขยายปุ่มเมื่อ hover */
+}
+
+.reserve-button:disabled {
+    background-color: #4a221c;
+    cursor: not-allowed;
+    color: #bbb;
+    transform: none; /* ไม่ขยายเมื่อเป็นปุ่มที่ถูก disabled */
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Kaushan+Script&family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
@@ -343,4 +352,25 @@ img {
     height: 30px;
     display: block;
     margin: auto;
+}
+
+.check-bill {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.check-bill-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.check-bill-btn:hover {
+    background-color: #45a049;
 }

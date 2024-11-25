@@ -1,4 +1,3 @@
-/*header*/
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -11,11 +10,6 @@
 .navbar-brand {
     font-size: 20px;
     font-weight: bold;
-}
-
-.navbar-menu .menu-icon {
-    font-size: 24px;
-    cursor: pointer;
 }
 
 .thxmem {
@@ -55,4 +49,28 @@
     margin-right: auto;
     padding: 1%;
 
+}
+
+.check-bill {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.check-bill-btn {
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.check-bill-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
 }

@@ -70,25 +70,21 @@ app.post('/regisDB', async (req, res) => {
             return res.status(400).send("Passwords do not match!");
         }
 
-        // Current Date/Time
-        const now_date = new Date().toISOString().slice(0, 19).replace('T', ' ');
-
         // Ensure the user table exists
         const createTableQuery = `
             CREATE TABLE IF NOT EXISTS userinfo (
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                username VARCHAR(255) NOT NULL UNIQUE,
-                password VARCHAR(255) NOT NULL,
-                date DATETIME,
-                profilepic VARCHAR(255) DEFAULT 'avatar.png'
+            userID INT AUTO_INCREMENT PRIMARY KEY,   -- Primary Key
+            username VARCHAR(255) NOT NULL UNIQUE,   -- Username (Unique)
+            password VARCHAR(255) NOT NULL,          -- Password
+            profilepic VARCHAR(255) DEFAULT 'avatar.png' -- Default profile picture
             )`;
         await queryDB(createTableQuery);
 
         // Insert the new user
         const insertUserQuery = `
-            INSERT INTO userinfo (username, password, date) 
-            VALUES (?, ?, ?)`;
-        await queryDB(mysql.format(insertUserQuery, [username, password, now_date]));
+            INSERT INTO userinfo (username, password) 
+            VALUES (?, ?)`;
+        await queryDB(mysql.format(insertUserQuery, [username, password]));
 
         // Redirect to the login page
         res.redirect('/login.html');
@@ -169,29 +165,144 @@ app.get('/getUserData', (req, res) => {
     }
 });
 
-app.post('/reserveTable', (req, res) => {
-    const username = req.cookies.username;
-    const table = req.body.table;
+app.post('/reserveTable', async (req, res) => {
+    try {
+        const username = req.cookies.username; // Retrieve username from cookies
+        const table = req.body.table; // Retrieve selected table from the request body
 
-    if (!username) {
-        return res.status(401).json({ error: "Unauthorized" });
+        if (!username) {
+            return res.status(401).json({ error: "Unauthorized" });
+        }
+
+        if (!table) {
+            return res.status(400).json({ error: "No table selected" });
+        }
+
+        // Get the userID based on the username
+        const getUserIDQuery = `SELECT userID FROM userinfo WHERE username = ?`;
+        const userResult = await queryDB(mysql.format(getUserIDQuery, [username]));
+
+        if (userResult.length === 0) {
+            return res.status(404).json({ error: "User not found" });
+        }
+
+        const userID = userResult[0].userID;
+
+        // Insert the reservation into the receipt table
+        const insertReceiptQuery = `
+            INSERT INTO receipt (userID, tableID, totalPrice) VALUES (?, ?, ?)
+        `;
+        const result = await queryDB(mysql.format(insertReceiptQuery, [userID, table, 0.0])); // Default totalPrice to 0.0 initially
+
+        // Get the receiptID of the newly inserted record
+        const receiptID = result.insertId;
+
+        // Send the receiptID back in the response
+        res.status(200).json({ success: "Table reserved successfully!", receiptID: receiptID });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "An error occurred while reserving the table" });
     }
-
-    if (!table) {
-        return res.status(400).json({ error: "No table selected" });
-    }
-
-    // Save the table reservation in the database
-    const query = `UPDATE userinfo SET reserved_table = ? WHERE username = ?`;
-    queryDB(mysql.format(query, [table, username]))
-        .then(() => {
-            res.status(200).send("Table reserved successfully");
-        })
-        .catch((err) => {
-            console.error(err);
-            res.status(500).json({ error: "Failed to reserve table." });
-        });
 });
+
+app.post('/addOrder', async (req, res) => {
+    try {
+        const { receiptID, menuID } = req.body;
+
+        if (!receiptID || !menuID) {
+            return res.status(400).json({ error: "ข้อมูลไม่ครบถ้วน" });
+        }
+
+        // เพิ่มคำสั่งซื้อในตาราง order
+        const insertOrderQuery = `
+            INSERT INTO \`order\` (receiptID, menuID) 
+            VALUES (?, ?)
+        `;
+        await queryDB(mysql.format(insertOrderQuery, [receiptID, menuID]));
+
+        res.status(200).json({ success: true, message: "เพิ่มคำสั่งซื้อสำเร็จ!" });
+    } catch (error) {
+        console.error("Error:", error);
+        res.status(500).json({ success: false, message: "เกิดข้อผิดพลาดขณะเพิ่มคำสั่งซื้อ" });
+    }
+});
+
+app.get('/getBill/:receiptID', async (req, res) => {
+    const receiptID = req.params.receiptID;
+
+    try {
+        // ดึงข้อมูลจากตาราง order โดยใช้ receiptID
+        const orderQuery = `
+            SELECT o.menuID, m.menuName, m.menuPrice
+            FROM \`order\` o
+            JOIN menu m ON o.menuID = m.menuID
+            WHERE o.receiptID = ?
+        `;
+        
+        const orders = await queryDB(mysql.format(orderQuery, [receiptID]));
+
+        if (orders.length === 0) {
+            return res.json({ error: "No orders found for this receipt ID" });
+        }
+
+        // คำนวณราคาทั้งหมด
+        let totalPrice = 0;
+        orders.forEach(order => {
+            totalPrice += order.menuPrice; // คำนวณรวมราคาเมนูทั้งหมด
+        });
+
+        // อัปเดตค่า totalPrice ในตาราง receipt
+        const updateReceiptQuery = `
+            UPDATE receipt
+            SET totalPrice = ?
+            WHERE receiptID = ?
+        `;
+        await queryDB(mysql.format(updateReceiptQuery, [totalPrice, receiptID]));
+
+        // ส่งข้อมูลกลับไปยังคลื่น
+        res.json({ orders, totalPrice });
+    } catch (error) {
+        console.error("Error fetching bill data:", error);
+        res.status(500).json({ error: "An error occurred while fetching the bill" });
+    }
+});
+
+app.get('/getOrderHistory/:username', async (req, res) => {
+    const username = req.params.username;
+
+    try {
+        // ดึง userID จาก username
+        const getUserIDQuery = `SELECT userID FROM userinfo WHERE username = ?`;
+        const userResult = await queryDB(mysql.format(getUserIDQuery, [username]));
+
+        if (userResult.length === 0) {
+            return res.status(404).json({ error: "User not found" });
+        }
+
+        const userID = userResult[0].userID;
+
+        // ดึงข้อมูลใบเสร็จจาก receipt table โดยการเชื่อมโยงกับ userID
+        const receiptQuery = `
+            SELECT r.receiptID, r.tableID, r.totalPrice
+            FROM receipt r
+            WHERE r.userID = ?
+            ORDER BY r.receiptID DESC
+            LIMIT 3;
+        `;
+        
+        const receipts = await queryDB(mysql.format(receiptQuery, [userID]));
+
+        // ส่งข้อมูลกลับไปให้ client
+        res.json(receipts);
+    } catch (error) {
+        console.error("Error fetching order history:", error);
+        res.status(500).json({ error: "An error occurred while fetching order history" });
+    }
+});
+
+
+
+
 
 app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);

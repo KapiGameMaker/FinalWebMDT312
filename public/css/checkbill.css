@@ -12,78 +12,100 @@
     font-weight: bold;
 }
 
-.navbar-menu .menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-}
-
-/* Basic body styling */
-
+/* Styling for the body */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fffefe;
+    background-color: #f8f8f8;
 }
 
+/* Center align the check order section */
 .checkorder {
     text-align: center;
-    margin-top: 5%;
+    margin-top: 50px;
 }
 
 .checkorder h2 {
-    margin-top: 10%;
-    font-family: var(--Kaushan);
-    font-size: 140%;
-    color: black;
+    font-size: 2rem;
+    color: #333;
+    font-family: 'Kaushan', cursive;
+    margin-bottom: 20px;
 }
 
-.checkorder p {
-    font-weight: 300;
-    padding: 1.8rem 0;
-    color: #000;
+/* Display the bill in a neat card format */
+.allorder {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
 }
 
-
-/*section-footer*/
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #10850c;
+.allorder h2 {
+    font-size: 1.2rem;
+    color: #555;
     display: flex;
-    color: white;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
 }
 
-
-.ordering_food {
-    font-size: 20px;
+/* Add styling for the total price */
+.allorder .total {
+    font-size: 1.5rem;
     font-weight: bold;
-    align-content: center;
-    margin-left: auto;
-    margin-right: auto;
-
+    margin-top: 20px;
+    text-align: right;
+    padding-top: 10px;
+    border-top: 2px solid #ddd;
+    color: #333;
 }
 
-#back {
-    width: 2%;
-    background: #6e2c26;
-    padding: 0.5%;
+/* Styling for the check bill button */
+.check-bill {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
 }
 
-@media screen and (min-width: 992px) {
-    .ordering_food {
-        font-size: 20px;
-        font-weight: bold;
-        align-content: center;
-        margin-left: auto;
-        margin-right: auto;
+.check-bill-btn {
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.check-bill-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Media Query for responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
     }
-    #back {
-        width: 2%;
-        background: #6e2c26;
-        padding: 0.5%;
+
+    .checkorder h2 {
+        font-size: 1.5rem;
+    }
+
+    .allorder h2 {
+        font-size: 1rem;
+    }
+
+    .check-bill-btn {
+        font-size: 16px;
+        padding: 12px 25px;
     }
 }
-

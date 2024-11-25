@@ -6,26 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ร้าน Miyue - เช็คบิล</title>
     <link rel="stylesheet" href="./css/checkbill.css">
+    <script src="./js/checkbill.js" defer></script> <!-- ใช้ defer เพื่อให้สคริปต์โหลดหลังจาก HTML โหลดแล้ว -->
 </head>
 
 <body>
 
     <!-- Top Navigation Bar -->
     <nav class="navbar">
-        <div class="navbar-brand">เช็คบิล</div>
+        <div class="navbar-brand">CheckBill</div>
         <div class="navbar-menu">
             <span class="menu-icon">&#9776;</span>
         </div>
     </nav>
 
+    <!-- แสดงรายการทั้งหมด -->
     <div class="checkorder">
         <h2>รายการทั้งหมด</h2>
     </div>
 
-    <!--section footer-->
-    <!--section footer-->
-    <section class="footer">
-        <img id="back" src="./pic/forback.png" alt="back">
-    <div class="ordering_food">ชำระเงิน</div>
-</section>
+    <!-- รายการอาหารที่ดึงมาจากฐานข้อมูล -->
+    <div class="allorder">
+        <!-- รายการที่ดึงมาแสดง -->
+    </div>
+
+    <!-- ปุ่มเช็คบิล -->
+    <section class="check-bill">
+        <a href="thxmember.html">
+            <button class="check-bill-btn">เช็คบิล</button>
+        </a>
+    </section>
+
 </body>
+
+</html>

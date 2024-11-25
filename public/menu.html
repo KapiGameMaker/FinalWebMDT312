@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ร้าน Miyue - เมนูอาหาร</title>
     <link rel="stylesheet" href="./css/menu.css">
+    <script src="./js/menu.js" defer></script>
 </head>
 
 <body>
@@ -22,7 +23,7 @@
     <section class="menu">
         <div class="menu-container">
             <div class="menu-head">
-                <h2>สวัสดีคุณ AAA !!!</h2>
+                <h2>โต๊ะ ### ID: ###</h2>
                 <p>โปรดเลือกเมนูที่ต้องการ</p>
             </div>
             <div class="menu-btns">
@@ -31,239 +32,239 @@
 
             <div class="food-items">
                 <!-- item -->
-                    <div class="food-item featured">
-                        <div class="food-img">
-                            <img src="./pic/aichaPeach.jpg" alt="food image">
-                        </div>
-                        <div class="food-content">
-                            <h2 class="food-name">ไอศครีมแยมพีช</h2>
-                            <div class="line"></div>
-                            <h3 class="food-price">30.-</h3>
-                            <button class="button_orders">เลือก</button>
-                        </div>
-                    </div>
-                <!-- end of item -->
-
-                <!-- item -->
-                <div class="food-item today-special">
+                <div class="food-item featured" data-menu-id="1"> <!-- menuID -->
                     <div class="food-img">
-                        <img src="./pic/aichaGrape.jfif" alt="food image">
+                        <img src="./pic/aichaPeach.jpg" alt="Peach">
                     </div>
                     <div class="food-content">
-                        <h2 class="food-name">ไอศครีมแยมองุ่น</h2>
+                        <h2 class="food-name">Peach</h2>
                         <div class="line"></div>
                         <h3 class="food-price">30.-</h3>
-                        <button class="button_orders">เลือก</button>
+                        <button class="button_orders" id="select1">เลือก</button>
                     </div>
                 </div>
                 <!-- end of item -->
 
                 <!-- item -->
-                <div class="food-item new-arrival">
+                <div class="food-item featured" data-menu-id="2"> <!-- menuID -->
                     <div class="food-img">
-                        <img src="./pic/aichaShankeStrawberry.jfif" alt="food image">
+                        <img src="./pic/aichaGrape.jfif" alt="Grape">
                     </div>
                     <div class="food-content">
-                        <h2 class="food-name">สตอร์เบอร์รี่เชค</h2>
-                        <div class="line"></div>
-                        <h3 class="food-price">45.-</h3>
-                        <button class="button_orders">เลือก</button>
-                    </div>
-                </div>
-                <!-- end of item -->
-
-                <!-- item -->
-                <div class="food-item featured">
-                    <div class="food-img">
-                        <img src="./pic/aichaShankeGrape.jfif" alt="food image">
-                    </div>
-                    <div class="food-content">
-                        <h2 class="food-name">องุ่นเชค</h2>
-                        <div class="line"></div>
-                        <h3 class="food-price">45.-</h3>
-                        <button class="button_orders">เลือก</button>
-                    </div>
-                </div>
-                <!-- end of item -->
-
-                <!-- item -->
-                <div class="food-item today-special">
-                    <div class="food-img">
-                        <img src="./pic/aichaMango.jfif" alt="food image">
-                    </div>
-                    <div class="food-content">
-                        <h2 class="food-name">ไอศครีมแยมมะม่วง</h2>
+                        <h2 class="food-name">Grape</h2>
                         <div class="line"></div>
                         <h3 class="food-price">30.-</h3>
-                        <button class="button_orders">เลือก</button>
+                        <button class="button_orders" id="select2">เลือก</button>
                     </div>
                 </div>
                 <!-- end of item -->
 
                 <!-- item -->
-                <div class="food-item new-arrival">
+                <div class="food-item featured" data-menu-id="3"> <!-- menuID -->
                     <div class="food-img">
-                        <img src="./pic/aichaSmoothiesStraw.jfif" alt="food image">
+                        <img src="./pic/aichaShankeStrawberry.jfif" alt="ShankeStrawberry">
                     </div>
                     <div class="food-content">
-                        <h2 class="food-name">สมูทตี้สตอร์เบอร์รี่</h2>
+                        <h2 class="food-name">ShankeStrawberry</h2>
+                        <div class="line"></div>
+                        <h3 class="food-price">45.-</h3>
+                        <button class="button_orders" id="select3">เลือก</button>
+                    </div>
+                </div>
+                <!-- end of item -->
+
+                <!-- item -->
+                <div class="food-item featured" data-menu-id="4"> <!-- menuID -->
+                    <div class="food-img">
+                        <img src="./pic/aichaShankeGrape.jfif" alt="ShankeGrape">
+                    </div>
+                    <div class="food-content">
+                        <h2 class="food-name">ShankeGrape</h2>
+                        <div class="line"></div>
+                        <h3 class="food-price">45.-</h3>
+                        <button class="button_orders" id="select4">เลือก</button>
+                    </div>
+                </div>
+                <!-- end of item -->
+
+                <!-- item -->
+                <div class="food-item featured" data-menu-id="5"> <!-- menuID -->
+                    <div class="food-img">
+                        <img src="./pic/aichaMango.jfif" alt="Mango">
+                    </div>
+                    <div class="food-content">
+                        <h2 class="food-name">Mango</h2>
+                        <div class="line"></div>
+                        <h3 class="food-price">30.-</h3>
+                        <button class="button_orders" id="select5">เลือก</button>
+                    </div>
+                </div>
+                <!-- end of item -->
+
+                <!-- item -->
+                <div class="food-item featured" data-menu-id="6"> <!-- menuID -->
+                    <div class="food-img">
+                        <img src="./pic/aichaSmoothiesStraw.jfif" alt="SmoothiesStraw">
+                    </div>
+                    <div class="food-content">
+                        <h2 class="food-name">SmoothiesStraw</h2>
                         <div class="line"></div>
                         <h3 class="food-price">50.-</h3>
-                        <button class="button_orders">เลือก</button>
+                        <button class="button_orders" id="select6">เลือก</button>
                     </div>
                 </div>
                 <!-- end of item -->
 
                 <!-- item -->
-                <div class="food-item featured">
+                <div class="food-item featured" data-menu-id="7"> <!-- menuID -->
                     <div class="food-img">
-                        <img src="./pic/aichaBoba.jfif" alt="food image">
+                        <img src="./pic/aichaBoba.jfif" alt="Boba">
                     </div>
                     <div class="food-content">
-                        <h2 class="food-name">ไอศครีมบราวชูร์ก้า</h2>
+                        <h2 class="food-name">Boba</h2>
                         <div class="line"></div>
                         <h3 class="food-price">50.-</h3>
-                        <button class="button_orders">เลือก</button>
+                        <button class="button_orders" id="select7">เลือก</button>
                     </div>
                 </div>
                 <!-- end of item -->
 
                 <!-- item -->
-                <div class="food-item today-special">
+                <div class="food-item featured" data-menu-id="8"> <!-- menuID -->
                     <div class="food-img">
-                        <img src="./pic/aichalemonade.jfif" alt="food image">
+                        <img src="./pic/aichalemonade.jfif" alt="lemonade">
                     </div>
                     <div class="food-content">
-                        <h2 class="food-name">น้ำมะนาวไอชา</h2>
+                        <h2 class="food-name">lemonade</h2>
                         <div class="line"></div>
                         <h3 class="food-price">20.-</h3>
-                        <button class="button_orders">เลือก</button>
+                        <button class="button_orders" id="select8">เลือก</button>
                     </div>
                 </div>
                 <!-- end of item -->
 
                 <!-- item -->
-                <div class="food-item new-arrival">
+                <div class="food-item featured" data-menu-id="9"> <!-- menuID -->
                     <div class="food-img">
-                        <img src="./pic/aichaOreo.jfif" alt="food image">
+                        <img src="./pic/aichaOreo.jfif" alt="Oreo">
                     </div>
                     <div class="food-content">
-                        <h2 class="food-name">ไอศครีมโอริโอ้</h2>
+                        <h2 class="food-name">Oreo</h2>
                         <div class="line"></div>
                         <h3 class="food-price">45.-</h3>
-                        <button class="button_orders">เลือก</button>
+                        <button class="button_orders" id="select9">เลือก</button>
                     </div>
                 </div>
                 <!-- end of item -->
 
                 <!-- item -->
-                <div class="food-item featured">
+                <div class="food-item featured" data-menu-id="10"> <!-- menuID -->
                     <div class="food-img">
-                        <img src="./pic/aichaBobaSupreme.jfif" alt="food image">
+                        <img src="./pic/aichaBobaSupreme.jfif" alt="BobaSupreme">
                     </div>
                     <div class="food-content">
-                        <h2 class="food-name">ชานมไข่มุก พรีเมียมมิกซ์</h2>
+                        <h2 class="food-name">BobaSupreme</h2>
                         <div class="line"></div>
                         <h3 class="food-price">60.-</h3>
-                        <button class="button_orders">เลือก</button>
+                        <button class="button_orders" id="select10">เลือก</button>
                     </div>
                 </div>
                 <!-- end of item -->
 
                 <!-- item -->
-                <div class="food-item today-special">
+                <div class="food-item featured" data-menu-id="11"> <!-- menuID -->
                     <div class="food-img">
-                        <img src="./pic/aichaSmoothiesChocolate.jfif" alt="food image">
+                        <img src="./pic/aichaSmoothiesChocolate.jfif" alt="SmoothiesChocolate">
                     </div>
                     <div class="food-content">
-                        <h2 class="food-name">สมูทตี้ช็อกโกแลตคุ๊กกี้</h2>
+                        <h2 class="food-name">SmoothiesChocolate</h2>
                         <div class="line"></div>
                         <h3 class="food-price">55.-</h3>
-                        <button class="button_orders">เลือก</button>
+                        <button class="button_orders" id="select11">เลือก</button>
                     </div>
                 </div>
                 <!-- end of item -->
 
                 <!-- item -->
-                <div class="food-item new-arrival">
+                <div class="food-item featured" data-menu-id="12"> <!-- menuID -->
                     <div class="food-img">
-                        <img src="./pic/aichaBlueberry.jfif" alt="food image">
+                        <img src="./pic/aichaBlueberry.jfif" alt="Blueberry">
                     </div>
                     <div class="food-content">
-                        <h2 class="food-name">บลูเบอร์รี่ฟรุ๊ต</h2>
+                        <h2 class="food-name">Blueberry</h2>
                         <div class="line"></div>
                         <h3 class="food-price">45.-</h3>
-                        <button class="button_orders">เลือก</button>
+                        <button class="button_orders" id="select12">เลือก</button>
                     </div>
                 </div>
                 <!-- end of item -->
 
                 <!-- item -->
-                <div class="food-item featured">
+                <div class="food-item featured" data-menu-id="13"> <!-- menuID -->
                     <div class="food-img">
-                        <img src="./pic/aichaearltea.jfif" alt="food image">
+                        <img src="./pic/aichaearltea.jfif" alt="Earltea">
                     </div>
                     <div class="food-content">
-                        <h2 class="food-name">ไอศครีมเออร์ เกรย์ชา</h2>
+                        <h2 class="food-name">Earltea</h2>
                         <div class="line"></div>
                         <h3 class="food-price">40.-</h3>
-                        <button class="button_orders">เลือก</button>
+                        <button class="button_orders" id="select13">เลือก</button>
                     </div>
                 </div>
                 <!-- end of item -->
 
                 <!-- item -->
-                <div class="food-item today-special">
+                <div class="food-item featured" data-menu-id="14"> <!-- menuID -->
                     <div class="food-img">
-                        <img src="./pic/aichaSmoothiesGrape.jfif" alt="food image">
+                        <img src="./pic/aichaSmoothiesGrape.jfif" alt="SmoothiesGrape">
                     </div>
                     <div class="food-content">
-                        <h2 class="food-name">สมูทตี้องุ่น</h2>
+                        <h2 class="food-name">SmoothiesGrape</h2>
                         <div class="line"></div>
                         <h3 class="food-price">55.-</h3>
-                        <button class="button_orders">เลือก</button>
+                        <button class="button_orders" id="select14">เลือก</button>
                     </div>
                 </div>
                 <!-- end of item -->
 
                 <!-- item -->
-                <div class="food-item new-arrival">
+                <div class="food-item featured" data-menu-id="15"> <!-- menuID -->
                     <div class="food-img">
-                        <img src="./pic/aichaBlueberryShake.jfif" alt="food image">
+                        <img src="./pic/aichaBlueberryShake.jfif" alt="BlueberryShake">
                     </div>
                     <div class="food-content">
-                        <h2 class="food-name">บลูเบอร์รี่เชค</h2>
+                        <h2 class="food-name">BlueberryShake</h2>
                         <div class="line"></div>
                         <h3 class="food-price">45.-</h3>
-                        <button class="button_orders">เลือก</button>
+                        <button class="button_orders" id="select15">เลือก</button>
                     </div>
                 </div>
                 <!-- end of item -->
 
                 <!-- item -->
-                <div class="food-item featured">
+                <div class="food-item featured" data-menu-id="16"> <!-- menuID -->
                     <div class="food-img">
-                        <img src="./pic/aichaMilkteaCoconut.jfif" alt="food image">
+                        <img src="./pic/aichaMilkteaCoconut.jfif" alt="MilkteaCoconut">
                     </div>
                     <div class="food-content">
-                        <h2 class="food-name">ชานมมะพร้าว</h2>
+                        <h2 class="food-name">MilkteaCoconut</h2>
                         <div class="line"></div>
                         <h3 class="food-price">45.-</h3>
-                        <button class="button_orders">เลือก</button>
+                        <button class="button_orders" id="select16">เลือก</button>
                     </div>
                 </div>
                 <!-- end of item -->
 
                 <!-- item -->
-                <div class="food-item today-special">
+                <div class="food-item featured" data-menu-id="17"> <!-- menuID -->
                     <div class="food-img">
-                        <img src="./pic/aichaCreamyMango.jfif" alt="food image">
+                        <img src="./pic/aichaCreamyMango.jfif" alt="CreamyMango">
                     </div>
                     <div class="food-content">
-                        <h2 class="food-name">ครีมมี่ไข่มุกมะม่วง</h2>
+                        <h2 class="food-name">CreamyMango</h2>
                         <div class="line"></div>
                         <h3 class="food-price">60.-</h3>
-                        <button class="button_orders">เลือก</button>
+                        <button class="button_orders" id="select17">เลือก</button>
                     </div>
                 </div>
                 <!-- end of item -->
@@ -271,10 +272,16 @@
         </div>
     </section>
 
+    <section class="check-bill">
+        <a href="checkbill.html">
+            <button class="check-bill-btn">เช็คบิล</button>
+        </a>
+    </section>
+
     <section class="footer">
-            <div class="imglogo">
-              <img src="./pic/logo.png" alt="logorodken">
-            </div>
+        <div class="imglogo">
+            <img src="./pic/logo.png" alt="logorodken">
+        </div>
     </section>
 
 </body>
