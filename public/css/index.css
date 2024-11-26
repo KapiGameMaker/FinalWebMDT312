@@ -35,7 +35,6 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
@@ -140,4 +139,9 @@ button[type="submit"]:hover {
     .button-group button {
         width: 100%;
     }
+}
+
+#snowman {
+    margin-left: 33%;
+    width: 30%;
 }

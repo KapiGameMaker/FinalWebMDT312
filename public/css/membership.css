@@ -139,13 +139,8 @@ body {
     background-color: #45a049;
 }
 
-.menu-section .menu-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px; /* ระยะห่างระหว่างรายการ */
-}
-
 .menu-item {
+    margin-bottom: 10%;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
@@ -172,4 +167,8 @@ body {
 
 .menu-item .menu-info {
     padding: 8px;
+}
+
+h2 {
+    padding: 10%;
 }
