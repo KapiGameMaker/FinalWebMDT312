@@ -1,0 +1,130 @@
+/* Reset styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2;
+    line-height: 1.6;
+}
+
+/* Navigation bar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6e2c26;
+    color: white;
+    padding: 15px 20px;
+}
+
+.navbar-brand {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.navbar-menu .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Form container */
+form {
+    max-width: 800px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 50px;
+    background-color: #ccccff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+   h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 1em;
+  }
+  
+  form input, 
+  form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #cbb1ff;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  form textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  form button {
+    padding: 10px 20px;
+    background-color: #74433e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  form button:hover {
+    background-color: #6b2a23;
+  }
+  
+  /* Back link */
+  .back-link {
+    margin: 20px;
+    display: inline-block;
+    font-size: 1em;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .back-link:hover {
+    color: #811e1e;
+  }
+  
+  /* Layout styles */
+  #image-preview {
+    border: 2px dashed #38814b;
+    border-radius: 8px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #777;
+    font-size: 1em;
+    margin-right: 20px;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .form-fields {
+    flex: 1;
+  }
+  

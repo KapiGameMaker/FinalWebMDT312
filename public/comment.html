@@ -1,0 +1,44 @@
+<!-- views/create-event.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Review</title>
+  <link rel="stylesheet" href="/public/css/comment.css">
+
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-brand">ร้าน Miyue</div>
+    <div class="navbar-menu">
+        <span class="menu-icon">&#9776;</span>
+    </div>
+</nav>
+
+  <h1>REVIEW</h1>
+  <!-- Note the enctype attribute added to the form -->
+  <form id="create-event-form" action="/events/create" method="POST" enctype="multipart/form-data">
+    <label>Title:</label>
+    <input type="text" name="title" required><br>
+
+    <label>Description:</label>
+    <textarea name="description" required></textarea><br>
+
+    <label>Date:</label>
+    <input type="date" name="date" required><br>
+
+    <label>Time:</label>
+    <input type="time" name="time" required><br>
+
+    <label>Location:</label>
+    <input type="text" name="location" required><br>
+
+    <!-- Image Upload Field -->
+    <label>Event Image:</label>
+    <input type="file" name="image" accept="image/*" required><br>
+
+    <button type="submit">Create Event</button>
+  </form>
+</body>
+</html>
