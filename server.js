@@ -302,17 +302,24 @@ app.get('/getOrderHistory/:username', async (req, res) => {
 app.post('/addMenu', upload.single('menuImage'), async (req, res) => {
     const { menuName, menuPrice } = req.body;
     const menuImage = req.file ? req.file.filename : null;
+    const username = req.cookies.username; // ดึง username จาก cookie
+
+    if (!username) {
+        return res.status(401).json({ success: false, message: 'Unauthorized. Please log in.' });
+    }
 
     if (!menuName || !menuPrice || !menuImage) {
         return res.status(400).json({ success: false, message: 'กรุณากรอกข้อมูลให้ครบถ้วน' });
     }
 
     try {
+        // เพิ่มเมนูใหม่และบันทึกชื่อผู้เพิ่ม (menuCreator)
         const addMenuQuery = `
-            INSERT INTO menu (menuName, menuPrice, menuImage) 
-            VALUES (?, ?, ?)
+            INSERT INTO menu (menuName, menuPrice, menuImage, menuCreator) 
+            VALUES (?, ?, ?, ?)
         `;
-        await queryDB(mysql.format(addMenuQuery, [menuName, menuPrice, menuImage]));
+        await queryDB(mysql.format(addMenuQuery, [menuName, menuPrice, menuImage, username]));
+
         res.status(200).json({ success: true });
     } catch (error) {
         console.error('Error adding menu to database:', error);
@@ -320,9 +327,13 @@ app.post('/addMenu', upload.single('menuImage'), async (req, res) => {
     }
 });
 
+
 app.get('/getMenu', async (req, res) => {
     try {
-        const query = "SELECT * FROM menu";
+        const query = `
+            SELECT menuID, menuName, menuPrice, menuImage, menuCreator 
+            FROM menu
+        `;
         const menuItems = await queryDB(query);
         res.json({ menu: menuItems });
     } catch (error) {

@@ -93,32 +93,34 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // ฟังก์ชันโหลดเมนูจากฐานข้อมูล
-const loadMenu = () => {
-    fetch('/getMenu')
-        .then((response) => response.json())
-        .then((data) => {
-            const menuList = document.getElementById('menu-list');
-            menuList.innerHTML = ''; // เคลียร์รายการเมนูเดิม
-            data.menu.forEach(item => {
-                menuList.innerHTML += `
-                    <div class="food-item featured" data-menu-id="${item.menuID}">
-                        <div class="food-img">
-                            <img src="/pic/${item.menuImage}" alt="${item.menuName}">
+    const loadMenu = () => {
+        fetch('/getMenu')
+            .then((response) => response.json())
+            .then((data) => {
+                const menuList = document.getElementById('menu-list');
+                menuList.innerHTML = ''; // เคลียร์รายการเมนูเดิม
+                data.menu.forEach(item => {
+                    menuList.innerHTML += `
+                        <div class="food-item featured" data-menu-id="${item.menuID}">
+                            <div class="food-img">
+                                <img src="/pic/${item.menuImage}" alt="${item.menuName}">
+                            </div>
+                            <div class="food-content">
+                                <h2 class="food-name">${item.menuName}</h2>
+                                <div class="line"></div>
+                                <h3 class="food-price">${item.menuPrice} บาท</h3>
+                                <p class="food-creator">สร้างโดย: ${item.menuCreator}</p> <!-- เพิ่มส่วนนี้ -->
+                                <button class="button_orders" id="select4">เลือก</button>
+                            </div>
                         </div>
-                        <div class="food-content">
-                            <h2 class="food-name">${item.menuName}</h2>
-                            <div class="line"></div>
-                            <h3 class="food-price">${item.menuPrice}-</h3>
-                            <button class="button_orders" id="select4">เลือก</button>
-                        </div>
-                    </div>
-                `;
+                    `;
+                });
+            })
+            .catch((error) => {
+                console.error('Error loading menu:', error);
             });
-        })
-        .catch((error) => {
-            console.error('Error loading menu:', error);
-        });
-};
+    };
+    
 
 // ใช้ event delegation เพื่อตรวจจับการกดปุ่มจาก element ใหม่ที่ถูกเพิ่มเข้ามา
 document.getElementById('menu-list').addEventListener('click', (event) => {

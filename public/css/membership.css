@@ -139,3 +139,37 @@ body {
     background-color: #45a049;
 }
 
+.menu-section .menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* ระยะห่างระหว่างรายการ */
+}
+
+.menu-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 200px; /* กำหนดขนาดกล่อง */
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item .menu-img {
+    width: 100%; /* ให้รูปภาพครอบคลุมพื้นที่เต็มกล่อง */
+    height: 150px; /* ความสูงที่กำหนด */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.menu-item .menu-img img {
+    max-width: 100%; /* รูปภาพไม่เกินขอบกล่องแนวนอน */
+    max-height: 100%; /* รูปภาพไม่เกินขอบกล่องแนวตั้ง */
+    object-fit: cover; /* ปรับการครอบรูปภาพให้ดูสมดุล */
+}
+
+.menu-item .menu-info {
+    padding: 8px;
+}

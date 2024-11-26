@@ -505,5 +505,52 @@ button:hover {
     background-color: #999;
 }
 
-#cancel-form-btn:hover {
+.food-item {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 300px; /* หรือขนาดที่คุณต้องการ */
+    margin: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.food-img {
+    width: 150px; /* ขนาดของภาพ */
+    height: 150px; /* ขนาดของภาพ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.food-img img {
+    width: 100%; /* รูปภาพจะขยายจนเต็มความกว้างของกล่อง */
+    height: 100%; /* รูปภาพจะขยายจนเต็มความสูงของกล่อง */
+    object-fit: cover; /* ทำให้รูปภาพครอบคลุมพื้นที่ของกล่อง โดยไม่ทำให้เสียสัดส่วน */
+}
+
+.food-content {
+    padding: 16px;
+    flex-grow: 1;
+}
+
+.food-name, .food-price, .food-creator {
+    margin: 4px 0;
+}
+
+.button_orders {
+    margin-top: 12px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button_orders:hover {
+    background-color: #0056b3;
+}
+
