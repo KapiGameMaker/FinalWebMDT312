@@ -374,3 +374,136 @@ img {
 .check-bill-btn:hover {
     background-color: #45a049;
 }
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin: 1rem 0;
+    background-color: #fff;
+    color: #000;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#new-menu-form {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#new-menu-form div {
+    margin-bottom: 15px;
+}
+
+#new-menu-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#new-menu-form input[type="text"],
+#new-menu-form input[type="number"],
+#new-menu-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* menu.css */
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.food-item {
+    margin-bottom: 20px;
+}
+
+.food-item img {
+    max-width: 100px;
+    height: auto;
+}
+
+#new-menu-form-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+#new-menu-form input, #new-menu-form button {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* ฟอร์มเพิ่มเมนู */
+.new-menu-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 16px;
+    color: #333;
+}
+
+.form-group input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #4a221c;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4a221c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #3c1a16;
+}
+
+#cancel-form-btn {
+    background-color: #999;
+}
+
+#cancel-form-btn:hover {
+}

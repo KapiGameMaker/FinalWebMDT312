@@ -15,14 +15,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 const storage = multer.diskStorage({
-    destination: (req, file, callback) => {
-      callback(null, 'public/img/');
-    },
-
+    destination: './public/pic',
     filename: (req, file, cb) => {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    }
-  });
+        cb(null, `${Date.now()}-${file.originalname}`);
+    },
+});
+const upload = multer({ storage });
 
 const imageFilter = (req, file, cb) => {
     // Accept images only
@@ -227,6 +225,7 @@ app.post('/addOrder', async (req, res) => {
     }
 });
 
+
 app.get('/getBill/:receiptID', async (req, res) => {
     const receiptID = req.params.receiptID;
 
@@ -300,9 +299,37 @@ app.get('/getOrderHistory/:username', async (req, res) => {
     }
 });
 
+app.post('/addMenu', upload.single('menuImage'), async (req, res) => {
+    const { menuName, menuPrice } = req.body;
+    const menuImage = req.file ? req.file.filename : null;
 
+    if (!menuName || !menuPrice || !menuImage) {
+        return res.status(400).json({ success: false, message: 'กรุณากรอกข้อมูลให้ครบถ้วน' });
+    }
 
+    try {
+        const addMenuQuery = `
+            INSERT INTO menu (menuName, menuPrice, menuImage) 
+            VALUES (?, ?, ?)
+        `;
+        await queryDB(mysql.format(addMenuQuery, [menuName, menuPrice, menuImage]));
+        res.status(200).json({ success: true });
+    } catch (error) {
+        console.error('Error adding menu to database:', error);
+        res.status(500).json({ success: false, message: 'เกิดข้อผิดพลาดในการเพิ่มเมนู' });
+    }
+});
 
+app.get('/getMenu', async (req, res) => {
+    try {
+        const query = "SELECT * FROM menu";
+        const menuItems = await queryDB(query);
+        res.json({ menu: menuItems });
+    } catch (error) {
+        console.error('Error fetching menu:', error);
+        res.status(500).json({ success: false, message: 'Error fetching menu' });
+    }
+});
 
 app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
